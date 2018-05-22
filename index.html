@@ -189,6 +189,78 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-有关HTTP协议的理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+   <span id="busuanzi_container_page_pv">
+   本文总围观<span id="busuanzi_value_page_pv"></span>次
+  </span>
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/22/有关HTTP协议的理解/">有关HTTP协议的理解</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/22/有关HTTP协议的理解/" class="archive-article-date">
+  	<time datetime="2018-05-22T08:37:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h4><p>最近在理解网络协议方面，有很多疑惑，就看了看这方面的书籍，这里就简单分享一个自己读书的一些理解。</p>
+<h4 id="2-正文"><a href="#2-正文" class="headerlink" title="2. 正文"></a>2. 正文</h4><ul>
+<li>首先TCP/IP是一个协议族，我们通常使用的网络就是在他的基础上实现的，他包括我们常见的IP、FTP、HTTP、TCP、ICMP、UDP、、、等协议的总称。</li>
+<li>IP协议与IP地址是不同的两个概念，IP是一种协议的名称，IP协议的作用是把各种数据包传送给对方。而要保证确实传送到对方那里，则需要满足各类条件，其中包含两个最重要的条件就是IP地址和MAC地址。</li>
+<li>IP地址指明了节点被分配到的地址，MAC地址是指网卡所属的固定地址。IP地址可以和MAC地址进行配对，IP地址可变化，但MAC地址基本不会更改。确保可靠性的TCP协议：TCP协议位于传输层，提供可靠的字节流服务，字节流服务就是为了方便传输，将大块数据分割成以报文段为单位的数据包进行管理，可靠的传输服务是指，能够把数据准确可靠地传给对方。TCP协议为了更容易传送大数据才把数据进行分割，而且TCP协议能够确认数据最终是否送达到对方。TCP为了确保数据能到达目标，通过三次握手策略，即发送端首先发送一个带SYN标志的数据包给对方，接收端接收后。会回传一个带有SYN/ACK标志的数据包来说明接收到了数据，等到数据传送完后，发送端再次回传一个带ACK标志的数据包，来代表“握手结束”。</li>
+<li>www 这个名称由来：是以前web浏览器用来浏览超文本的客户端应用程序时的称呼，而现在我们常说的www 就指的是这一系列的集合，我们也常常称为Web。</li>
+<li>TCP/IP的分层管理：TCP/ IP协议族中，最重要的就是分层，他将Web 分为以下四层：应用层、传输层、网络层和数据链接层。</li>
+<li>使用ARP协议凭借MAC地址进行通信：在网络中两台通信的计算机在同一局域网总是很少的，大多数都是隔山又隔水的，所以他们之间的通信需要多台计算机和网络设备中转才能连接到对方，而在中转时，会利用下一站中转设备的MAC地址来搜索下一个中转目标。这个时候就会用到ARP协议，他是一种用以解析地址的协议，根据通信方的IP地址就能反查到对象的MAC地址。</li>
+<li>TCP提供字节流服务：所谓的字节流服务是指，为了方便将大块数据分割成以报文段为单位的数据包进行管理。TCP协议能够提供可靠的字节流服务，也就是说它能够把数据准确可靠地传给对方。</li>
+<li>负责域名解析的DNS服务：DNS服务十盒HTTP协议一样位于应用层的协议。他提供域名到IP地址之间的解析服务。首先没有域名是可以的，当我们访问别人的网站时，是可以用它的IP地址的，但是相对于一串数字的IP地址，我更容易记住的是字母加数字组合的域名，但是让计算机区理解我们的域名，相对而言就比较困难了，因为计算机更擅长处理一长串数字，为了解决这个问题，DNS（域名解析服务）就应运而生了，DNS协议提供通过域名查找IP地址，或逆向从IP地址反查域名的服务。</li>
+<li>请求报文的组成：由请求方法、请求URI、版本协议、可选的请求首部字段和内容实体构成的，例如：GER/ HTTP/1.1   Host:hackr.jp。</li>
+<li>相应报文的组成：基本上是由协议版本、状态码（表示成功或失败的数字代码）、用以解释状态码的原因短语、可选的响应首部字段以及实体主体构成。</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/22/有关HTTP协议的理解/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+  
     <article id="post-arcgis-api-for-js-之专题图" class="article article-type-post  article-index" itemscope itemprop="blogPost">
    <span id="busuanzi_container_page_pv">
    本文总围观<span id="busuanzi_value_page_pv"></span>次
@@ -802,72 +874,6 @@
 
 
   
-    <article id="post-arcgis-api-for-js-之自定义动态图层—热度图层" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-   <span id="busuanzi_container_page_pv">
-   本文总围观<span id="busuanzi_value_page_pv"></span>次
-  </span>
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/28/arcgis-api-for-js-之自定义动态图层—热度图层/">arcgis-api-for-js-之自定义动态图层—热度图层</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/28/arcgis-api-for-js-之自定义动态图层—热度图层/" class="archive-article-date">
-  	<time datetime="2018-01-28T06:57:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h4><p>ArcGIS API for javascript 只提供了 TiledMapServiceLayer 、DynamicMapServiceLayer 、OGC 的web地图服务、开放街道地图服务以及对 KML 文件的支持，但是不支持创建自定义的图层。我们需要扩展 TiledMapServiceLayer 或 DynamicMapServiceLayer  类来自定义图层，<br></p>
-        
-          <a class="article-more-a" href="/2018/01/28/arcgis-api-for-js-之自定义动态图层—热度图层/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">webgis</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">arcgis api for js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/28/arcgis-api-for-js-之自定义动态图层—热度图层/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -984,7 +990,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -992,11 +998,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">OpenLayers3</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1005,6 +1007,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据分析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">OpenLayers3</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1028,11 +1034,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hexo搭建博客</a>
+                <a href="javascript:void(0)" class="js-tag color4">laravel5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1044,7 +1046,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">laravel5</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hexo搭建博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1056,15 +1062,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1080,6 +1086,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">webgl</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">框架</a>
               </li>
              
@@ -1088,11 +1098,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">webgl</a>
+                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">小程序开发</a>
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
