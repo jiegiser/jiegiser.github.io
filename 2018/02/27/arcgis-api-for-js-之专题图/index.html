@@ -8,21 +8,21 @@
   <link rel="dns-prefetch" href="http://jiegiser.github.io">
   <title>arcgis-api-for-js-之专题图 | 杰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 前言专题图用于将我们的数据更直观的在地图上显示出来，例如气候、人口分布、各种统计图等。在 ArcGIS API 中，可以根据属性数据中特定的值来赋给要素对象颜色、图案或符号，从而创建不同的专题图。该专题图可以是一个或多个专题变量，专题变量就是指在地图上显示的数据，一个专题变量可以是一个字段或表达式。 2. 独立专题图他是使用不同的颜色、符号或线性来显示不同的数据，根据独立值绘制的专题图有助于">
+  <meta name="description" content="1. 前言专题图用于将我们的数据更直观的在地图上显示出来，例如气候、人口分布、各种统计图等。在 ArcGIS API 中，可以根据属性数据中特定的值来赋给要素对象颜色、图案或符号，从而创建不同的专题图。该专题图可以是一个或多个专题变量，专题变量就是指在地图上显示的数据，一个专题变量可以是一个字段或表达式。 2. 独立专题图">
 <meta name="keywords" content="webgis,arcgis api for js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="arcgis-api-for-js-之专题图">
 <meta property="og:url" content="http://jiegiser.github.io/2018/02/27/arcgis-api-for-js-之专题图/index.html">
 <meta property="og:site_name" content="杰的博客">
-<meta property="og:description" content="1. 前言专题图用于将我们的数据更直观的在地图上显示出来，例如气候、人口分布、各种统计图等。在 ArcGIS API 中，可以根据属性数据中特定的值来赋给要素对象颜色、图案或符号，从而创建不同的专题图。该专题图可以是一个或多个专题变量，专题变量就是指在地图上显示的数据，一个专题变量可以是一个字段或表达式。 2. 独立专题图他是使用不同的颜色、符号或线性来显示不同的数据，根据独立值绘制的专题图有助于">
+<meta property="og:description" content="1. 前言专题图用于将我们的数据更直观的在地图上显示出来，例如气候、人口分布、各种统计图等。在 ArcGIS API 中，可以根据属性数据中特定的值来赋给要素对象颜色、图案或符号，从而创建不同的专题图。该专题图可以是一个或多个专题变量，专题变量就是指在地图上显示的数据，一个专题变量可以是一个字段或表达式。 2. 独立专题图">
 <meta property="og:image" content="http://img.blog.csdn.net/20180227194815715?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2o5NTUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="http://img.blog.csdn.net/20180301112245700?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2o5NTUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="http://img.blog.csdn.net/20180301150545800?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2o5NTUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
 <meta property="og:image" content="http://img.blog.csdn.net/201803011516545?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2o5NTUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
-<meta property="og:updated_time" content="2018-05-22T08:34:33.966Z">
+<meta property="og:updated_time" content="2018-05-22T08:40:35.202Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="arcgis-api-for-js-之专题图">
-<meta name="twitter:description" content="1. 前言专题图用于将我们的数据更直观的在地图上显示出来，例如气候、人口分布、各种统计图等。在 ArcGIS API 中，可以根据属性数据中特定的值来赋给要素对象颜色、图案或符号，从而创建不同的专题图。该专题图可以是一个或多个专题变量，专题变量就是指在地图上显示的数据，一个专题变量可以是一个字段或表达式。 2. 独立专题图他是使用不同的颜色、符号或线性来显示不同的数据，根据独立值绘制的专题图有助于">
+<meta name="twitter:description" content="1. 前言专题图用于将我们的数据更直观的在地图上显示出来，例如气候、人口分布、各种统计图等。在 ArcGIS API 中，可以根据属性数据中特定的值来赋给要素对象颜色、图案或符号，从而创建不同的专题图。该专题图可以是一个或多个专题变量，专题变量就是指在地图上显示的数据，一个专题变量可以是一个字段或表达式。 2. 独立专题图">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20180227194815715?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2o5NTUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70">
   
     <link rel="alternative" href="/atom.xml" title="杰的博客" type="application/atom+xml">
@@ -218,7 +218,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h4><p>专题图用于将我们的数据更直观的在地图上显示出来，例如气候、人口分布、各种统计图等。在 ArcGIS API 中，可以根据属性数据中特定的值来赋给要素对象颜色、图案或符号，从而创建不同的专题图。该专题图可以是一个或多个专题变量，专题变量就是指在地图上显示的数据，一个专题变量可以是一个字段或表达式。</p>
-<h4 id="2-独立专题图"><a href="#2-独立专题图" class="headerlink" title="2. 独立专题图"></a>2. 独立专题图</h4><p>他是使用不同的颜色、符号或线性来显示不同的数据，根据独立值绘制的专题图有助于强调数据的类型差异而不是显示定量信息，当用户只需要使用单一的数据值来渲染时，可以使用独立专题图。</p>
+<h4 id="2-独立专题图"><a href="#2-独立专题图" class="headerlink" title="2. 独立专题图"></a>2. 独立专题图</h4><a id="more"></a>
+<p>他是使用不同的颜色、符号或线性来显示不同的数据，根据独立值绘制的专题图有助于强调数据的类型差异而不是显示定量信息，当用户只需要使用单一的数据值来渲染时，可以使用独立专题图。</p>
 <ul>
 <li>代码如下：</li>
 </ul>
@@ -494,14 +495,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webgis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">arcgis api for js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ArcGISEngine</a>
               </li>
              
@@ -510,7 +503,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+                <a href="javascript:void(0)" class="js-tag color2">webgis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">arcgis api for js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -518,7 +519,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,7 +555,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">laravel5</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hexo搭建博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -566,11 +571,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hexo搭建博客</a>
+                <a href="javascript:void(0)" class="js-tag color4">laravel5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,6 +583,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -590,7 +595,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">域名解析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">webgl</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,14 +608,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">信息系统分析与设计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">域名解析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">webgl</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -622,15 +623,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Python爬虫学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">

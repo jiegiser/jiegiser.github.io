@@ -285,32 +285,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h4><p>专题图用于将我们的数据更直观的在地图上显示出来，例如气候、人口分布、各种统计图等。在 ArcGIS API 中，可以根据属性数据中特定的值来赋给要素对象颜色、图案或符号，从而创建不同的专题图。该专题图可以是一个或多个专题变量，专题变量就是指在地图上显示的数据，一个专题变量可以是一个字段或表达式。</p>
-<h4 id="2-独立专题图"><a href="#2-独立专题图" class="headerlink" title="2. 独立专题图"></a>2. 独立专题图</h4><p>他是使用不同的颜色、符号或线性来显示不同的数据，根据独立值绘制的专题图有助于强调数据的类型差异而不是显示定量信息，当用户只需要使用单一的数据值来渲染时，可以使用独立专题图。</p>
-<ul>
-<li>代码如下：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">             map.on(&quot;load&quot;,addFeatureLayer);</div><div class="line">            function addFeatureLayer() &#123;</div><div class="line">//               当值或中断无法匹配时使用的默认符号。</div><div class="line">                var defaultSymbol=new SimpleFillSymbol().setStyle(SimpleFillSymbol.STYLE_NULL);</div><div class="line">                defaultSymbol.outline.setStyle(SimpleLineSymbol.STYLE_NULL);</div><div class="line">//                创建渲染器</div><div class="line">                var renderer=new UniqueValueRenderer(defaultSymbol,&quot;SUB_REGION&quot;);</div><div class="line">//                为每个可能的值增加一个符号</div><div class="line">                renderer.addValue(&quot;Pacific&quot;,new SimpleFillSymbol().setColor(new Color([255,0,0,0.5])));</div><div class="line">                renderer.addValue(&quot;Mtn&quot;,new SimpleFillSymbol().setColor(new Color([0,255,0,0.5])));</div><div class="line">                renderer.addValue(&quot;N Eng&quot;,new SimpleFillSymbol().setColor(new Color([0,0,255,0.5])));</div><div class="line">                renderer.addValue(&quot;S Atl&quot;,new SimpleFillSymbol().setColor(new Color([255,0,255,0.5])));</div><div class="line">                renderer.addValue(&quot;Mid Atl&quot;,new SimpleFillSymbol().setColor(new Color([255,255,255,0.75])));</div><div class="line">                renderer.addValue(&quot;E N Cen&quot;,new SimpleFillSymbol().setColor(new Color([0,255,255,0.5])));</div><div class="line">                renderer.addValue(&quot;W N Cen&quot;,new SimpleFillSymbol().setColor(new Color([255,255,0,0.5])));</div><div class="line">                renderer.addValue(&quot;E S Cen&quot;,new SimpleFillSymbol().setColor(new Color([127,127,127,0.5])));</div><div class="line">                renderer.addValue(&quot;W S Cen&quot;,new SimpleFillSymbol().setColor(new Color([0,0,0,0.5])));</div><div class="line">                var featureLayer=new FeatureLayer(&quot;http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1&quot;,&#123;</div><div class="line">//                    设置信息窗口，读入SUB_REGION字段的值</div><div class="line">                    infoTemplate:new InfoTemplate(&quot; &quot;,&quot;$&#123;SUB_REGION&#125;&quot;),</div><div class="line">//                    设置地图的显示模式为按需模式</div><div class="line">                    mode:FeatureLayer.MODE_ONDEMAND,</div><div class="line">                    outFields:[&quot;SUB_REGION&quot;]</div><div class="line">                &#125;);</div><div class="line">                featureLayer.setRenderer(renderer);</div><div class="line">                map.addLayer(featureLayer);</div></pre></td></tr></table></figure>
-<ul>
-<li>实现效果如下图：<br><img src="http://img.blog.csdn.net/20180227194815715?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2o5NTUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></li>
-<li>代码解析<br>首先实例化一个渲染器，有两种方式，一种是如上面代码所示，直接设置其属性，还有一种方式是通过传入 json 格式数据。<br>下面这句代码就是创建一个渲染器，<code>defaultSymbol</code> 为当值或中断不能匹配时使用的默认符号，<code>SUB_REGION</code> 为属性字段渲染器用来匹配值，每个州都有一个字符串属性“SUB_REGION”，表示该国家的地区。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var renderer=new UniqueValueRenderer(defaultSymbol,&quot;SUB_REGION&quot;);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>然后就是给每一个读取到的值设置他的样式，最后加载要素，以及设置默认的信息窗口显示的内容，以及要素的显示模式。</p>
-<h4 id="3-点密度专题图"><a href="#3-点密度专题图" class="headerlink" title="3. 点密度专题图"></a>3. 点密度专题图</h4><p> 点密度专题图顾名思义，就是在地图上用点来显示数据，每一点都代表一定的数量。<code>esri/renderers/DotDensityRenderer</code> 类用于绘制点密度专题图，该类的官网 <a href="https://developers.arcgis.com/javascript/3/jsapi/dotdensityrenderer-amd.html" target="_blank" rel="external">链接</a>，其构造函数以及该类的属性如下图：<br> <img src="http://img.blog.csdn.net/20180301112245700?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2o5NTUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><br> <code>dotValue</code> 是指每个点代表的数组，当增加每个点代表的数值时，会减少在地图上显示的点，<code>dotSize</code> 是点的大小，如果利用的数据数值非常大，则应该用小的点，这样才能显示清楚，相反，对于数据的数值很小时，则应使用大的点。</p>
-<ul>
-<li>代码如下：</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">var layerUrl = &quot;http://services.arcgis.com/BG6nSlhZSAWtExvp/ArcGIS/rest/services/Demographics_World_Simp/FeatureServer/0&quot;;</div><div class="line">var layer = new FeatureLayer(layerUrl, &#123;</div><div class="line">    infoTemplate: new InfoTemplate(&quot;$&#123;CNTRY_NAME&#125;&quot;, &quot;$&#123;*&#125;&quot;),</div><div class="line">    mode: FeatureLayer.MODE_ONDEMAND,</div><div class="line">    outFields: [&quot;*&quot;]</div><div class="line">&#125;);</div><div class="line"></div><div class="line">var renderer = new DotDensityRenderer(&#123;</div><div class="line">    backgroundColor: new Color(&quot;#FFFFFF&quot;),</div><div class="line">    outline: new SimpleLineSymbol().setColor(new Color([0,0,255])),</div><div class="line">    fields: [&#123;</div><div class="line">        name: &quot;POP2007&quot;,</div><div class="line">        color: new Color(&quot;#FF0000&quot;)</div><div class="line">    &#125;],</div><div class="line">    dotShape: &quot;circle&quot;,</div><div class="line">    dotValue: 1000000,</div><div class="line">    dotSize: 1</div><div class="line">&#125;);</div><div class="line">layer.setRenderer(renderer);</div><div class="line">map.addLayers([layer]);</div><div class="line"></div><div class="line">map.on(&quot;layers-add-result&quot;, function (e) &#123;</div><div class="line">    var corn = e.layers[0].layer;</div><div class="line">    var legend = new Legend(&#123;</div><div class="line">        map: map,</div><div class="line">        layerInfos: [&#123;</div><div class="line">            layer: corn,</div><div class="line">            title: &quot;人口分布（2007年）&quot;</div><div class="line">        &#125;]</div><div class="line">    &#125;, &quot;legend&quot;);</div><div class="line">    legend.startup();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<ul>
-<li>实现效果：<br><img src="http://img.blog.csdn.net/20180301150545800?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2o5NTUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"><ul>
-<li>代码解析：<br>制作点密度图时要考虑的事项：<br>该fields属性允许我们指定多个字段。可以利用此属性以不同颜色显示一个地图上的多个变量。例如，使用不同的颜色来显示各民族的分布。<br><code>dotValue</code>与<code>dotSize</code> 属性控制显示的视觉效果。一个好的做法是设置点的大小和值，以便在图层中具有最高值的特征点覆盖度达到80%。随着用户放大或缩小，地图上的密度总是变化。使用<code>ScaleDependentRenderer</code>设置每个比例或缩放范围内的唯一的点密度渲染器，所以<code>dotValue</code>和<code>dotSize</code>可在多个尺度的范围内变化。<br>创建一个<code>DotDensityRenderer</code> 类，其构造函数以及属性如下图：<br><img src="http://img.blog.csdn.net/201803011516545?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2o5NTUx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>有关更多的专题图，可以参考官网的API，<code>esri/renderer</code> 类。</p>
-</blockquote>
-
+<h4 id="2-独立专题图"><a href="#2-独立专题图" class="headerlink" title="2. 独立专题图"></a>2. 独立专题图</h4>
+        
+          <a class="article-more-a" href="/2018/02/27/arcgis-api-for-js-之专题图/#more">more >></a>
+        
       
 
       
@@ -974,14 +952,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">webgis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">arcgis api for js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">ArcGISEngine</a>
               </li>
              
@@ -990,7 +960,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+                <a href="javascript:void(0)" class="js-tag color2">webgis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">arcgis api for js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -998,7 +976,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
+                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1034,7 +1012,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">laravel5</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hexo搭建博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1046,11 +1028,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hexo搭建博客</a>
+                <a href="javascript:void(0)" class="js-tag color4">laravel5</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1062,6 +1040,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vue</a>
               </li>
              
@@ -1070,7 +1052,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">markdown</a>
+                <a href="javascript:void(0)" class="js-tag color5">域名解析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">webgl</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1079,14 +1065,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">信息系统分析与设计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">域名解析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">webgl</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1102,15 +1080,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Python爬虫学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
