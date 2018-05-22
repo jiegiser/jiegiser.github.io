@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://jiegiser.github.io">
   <title>有关HTTP协议的理解 | 杰的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 前言最近在理解网络协议方面，有很多疑惑，就看了看这方面的书籍，这里就简单分享一个自己读书的一些理解。 2. 正文 首先TCP/IP是一个协议族，我们通常使用的网络就是在他的基础上实现的，他包括我们常见的IP、FTP、HTTP、TCP、ICMP、UDP、、、等协议的总称。 IP协议与IP地址是不同的两个概念，IP是一种协议的名称，IP协议的作用是把各种数据包传送给对方。而要保证确实传送到对方那">
+  <meta name="description" content="1. 前言最近在理解网络协议方面，有很多疑惑，就看了看这方面的书籍，这里就简单分享一个自己读书的一些理解。 2. 正文">
 <meta name="keywords" content="杂谈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="有关HTTP协议的理解">
 <meta property="og:url" content="http://jiegiser.github.io/2018/05/22/有关HTTP协议的理解/index.html">
 <meta property="og:site_name" content="杰的博客">
-<meta property="og:description" content="1. 前言最近在理解网络协议方面，有很多疑惑，就看了看这方面的书籍，这里就简单分享一个自己读书的一些理解。 2. 正文 首先TCP/IP是一个协议族，我们通常使用的网络就是在他的基础上实现的，他包括我们常见的IP、FTP、HTTP、TCP、ICMP、UDP、、、等协议的总称。 IP协议与IP地址是不同的两个概念，IP是一种协议的名称，IP协议的作用是把各种数据包传送给对方。而要保证确实传送到对方那">
-<meta property="og:updated_time" content="2018-05-22T08:38:15.739Z">
+<meta property="og:description" content="1. 前言最近在理解网络协议方面，有很多疑惑，就看了看这方面的书籍，这里就简单分享一个自己读书的一些理解。 2. 正文">
+<meta property="og:updated_time" content="2018-05-22T08:47:12.575Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="有关HTTP协议的理解">
-<meta name="twitter:description" content="1. 前言最近在理解网络协议方面，有很多疑惑，就看了看这方面的书籍，这里就简单分享一个自己读书的一些理解。 2. 正文 首先TCP/IP是一个协议族，我们通常使用的网络就是在他的基础上实现的，他包括我们常见的IP、FTP、HTTP、TCP、ICMP、UDP、、、等协议的总称。 IP协议与IP地址是不同的两个概念，IP是一种协议的名称，IP协议的作用是把各种数据包传送给对方。而要保证确实传送到对方那">
+<meta name="twitter:description" content="1. 前言最近在理解网络协议方面，有很多疑惑，就看了看这方面的书籍，这里就简单分享一个自己读书的一些理解。 2. 正文">
   
     <link rel="alternative" href="/atom.xml" title="杰的博客" type="application/atom+xml">
   
@@ -213,7 +213,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h4 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h4><p>最近在理解网络协议方面，有很多疑惑，就看了看这方面的书籍，这里就简单分享一个自己读书的一些理解。</p>
-<h4 id="2-正文"><a href="#2-正文" class="headerlink" title="2. 正文"></a>2. 正文</h4><ul>
+<h4 id="2-正文"><a href="#2-正文" class="headerlink" title="2. 正文"></a>2. 正文</h4><a id="more"></a>
+<ul>
 <li>首先TCP/IP是一个协议族，我们通常使用的网络就是在他的基础上实现的，他包括我们常见的IP、FTP、HTTP、TCP、ICMP、UDP、、、等协议的总称。</li>
 <li>IP协议与IP地址是不同的两个概念，IP是一种协议的名称，IP协议的作用是把各种数据包传送给对方。而要保证确实传送到对方那里，则需要满足各类条件，其中包含两个最重要的条件就是IP地址和MAC地址。</li>
 <li>IP地址指明了节点被分配到的地址，MAC地址是指网卡所属的固定地址。IP地址可以和MAC地址进行配对，IP地址可变化，但MAC地址基本不会更改。确保可靠性的TCP协议：TCP协议位于传输层，提供可靠的字节流服务，字节流服务就是为了方便传输，将大块数据分割成以报文段为单位的数据包进行管理，可靠的传输服务是指，能够把数据准确可靠地传给对方。TCP协议为了更容易传送大数据才把数据进行分割，而且TCP协议能够确认数据最终是否送达到对方。TCP为了确保数据能到达目标，通过三次握手策略，即发送端首先发送一个带SYN标志的数据包给对方，接收端接收后。会回传一个带有SYN/ACK标志的数据包来说明接收到了数据，等到数据传送完后，发送端再次回传一个带ACK标志的数据包，来代表“握手结束”。</li>
@@ -471,6 +472,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">webgis</a>
               </li>
              
@@ -479,15 +484,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">dojo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">系统架构</a>
+                <a href="javascript:void(0)" class="js-tag color3">echarts</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -519,6 +520,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">hexo搭建网站</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">畅言评论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo中插入图片</a>
               </li>
              
@@ -528,14 +537,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">hexo搭建博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">hexo搭建网站</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">畅言评论</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -563,14 +564,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">域名解析</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">webgl</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
@@ -579,11 +572,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">域名解析</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">webgl</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">框架</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计模式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -596,10 +601,6 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Python爬虫学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
