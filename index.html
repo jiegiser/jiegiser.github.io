@@ -1265,7 +1265,7 @@ const sorpid = 'wwe7832a2285c7bb51';
             //         let code = res;
             //         console.log(`code=${code}`);
 	    alert(`https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${sorpid}&corpsecret=${Secret}`);
-            axios.get(
+            axios.post(
                     `https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${sorpid}&corpsecret=${Secret}`
                 )
                 .then((response) => {
