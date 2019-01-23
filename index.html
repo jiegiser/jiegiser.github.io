@@ -1242,7 +1242,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
 </div>
   </div>
 	<script>
-		        const sorpid = 'wwe7832a2285c7bb51';
+const sorpid = 'wwe7832a2285c7bb51';
 
         const url = 'http://jiegiser.win';
 
@@ -1251,53 +1251,52 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
         const Secret = 'R-C1HIUbWqKxZicYDTRpEtK0LCT4_R4BzH1s4P3h0ko';
 
         const agenttid = '1000002';
-		window.onload=function(){
-			
-			alert("获取数据");
-            axios.get(
-                    `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${sorpid}&redirect_uri=${codeUrl}&response_type=code&scope=snsapi_base&agentid=${agenttid}&state=loudi#wechat_redirect`
-                )
-                .then((res) => {
-                    let code = res;
-                    alert(`code=${code}`);
-                    axios.get(
-                            `https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${sorpid}&corpsecret=${Secret}`
-                        )
-                        .then((response) => {
-                            alert(`accsee_token=${response}`);
-                            axios.get(
-                                    `https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=${response}&code=${code}`
-                                )
-                                .then((info) => {
-                                    alert(`用户信息=${info}`);
-                                })
-                                .catch((er) => {
-                                    alert(`获取用户信息失败=${er}`);
-                                })
-                        })
-                        .catch((error) => {
-                            alert(`获取access_token失败=${error}`);
-                        })
 
+
+        var code = location.href.split('?')[1].split('&')[0].split('=')[1];
+        alert(code);
+
+        window.onload = function () {
+            alert("获取数据");
+            // axios.get(
+            //         `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${sorpid}&redirect_uri=${codeUrl}&response_type=code&scope=snsapi_base&agentid=${agenttid}&state=loudi#wechat_redirect`
+            //     )
+            //     .then((res) => {
+            //         let code = res;
+            //         console.log(`code=${code}`);
+            axios.get(
+                    `https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${sorpid}&corpsecret=${Secret}`
+                )
+                .then((response) => {
+                    alert(`accsee_token=${response}`);
+                    axios.get(
+                            `https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=${response}&code=${code}`
+                        )
+                        .then((info) => {
+                            alert(`用户信息=${info}`);
+                        })
+                        .catch((er) => {
+                            alert(`获取用户信息失败=${er}`);
+                        })
                 })
-                .catch(function (error) {
-                    if (error.response) {
-                        // 请求已发出，但服务器响应的状态码不在 2xx 范围内
-                        alert(error.response.data);
-                        alert(error.response.status);
-                        alert(error.response.headers);
-                    } else {
-                        // Something happened in setting up the request that triggered an Error
-                        alert('Error', error.message);
-                    }
-                    alert(error.config);
-                });
-			
-	    alert("jinlia");
-	    var code = location.href.split('?')[1].split('&')[0].split('=')[1];
-            alert(code);
-		alert(location.href);
-		}
+                .catch((error) => {
+                    alert(`获取access_token失败=${error}`);
+                })
+
+            //})
+            // .catch(function (error) {
+            //     if (error.response) {
+            //         // 请求已发出，但服务器响应的状态码不在 2xx 范围内
+            //         console.log(error.response.data);
+            //         console.log(error.response.status);
+            //         console.log(error.response.headers);
+            //     } else {
+            //         // Something happened in setting up the request that triggered an Error
+            //         console.log('Error', error.message);
+            //     }
+            //     console.log(error.config);
+            // });
+        }
 	</script>
 </body>
 </html>
