@@ -1256,26 +1256,45 @@ const sorpid = 'wwe7832a2285c7bb51';
         var code = location.href.split('?')[1].split('&')[0].split('=')[1];
         alert(code);
         alert(location.href);
-		        $(function ($) {
-            var url = 'https://qyapi.weixin.qq.com/cgi-bin/gettoken';
-            $.ajax(url, {
-                data: {
-                    'corpid': sorpid,
-                    'corpsecret': Secret
-                },
-                // dataType: 'jsonp',
-                // crossDomain: true,
-                success: function (data) {
-                    if (data) {
-                        alert(data);
-                    }
-                }
-            });
-        });
+
 
 		
         window.onload = function () {
             alert("获取数据");
+		
+		
+		            $.ajax({
+                type: "get", //请求方式
+                async: true, //是否异步
+                url: "https://qyapi.weixin.qq.com/cgi-bin/gettoken",
+                dataType: "jsonp", //跨域json请求一定是jsonp
+                jsonp: "callbackparam", //跨域请求的参数名，默认是callback
+                //jsonpCallback:"successCallback",    //自定义跨域参数值，回调函数名也是一样，默认为jQuery自动生成的字符串
+                data: {
+                    'corpid': sorpid,
+                    'corpsecret': Secret
+                },
+
+                beforeSend: function () {
+                    //请求前的处理
+                },
+
+                success: function (da) {
+                    console.log(da);
+                    //请求成功处理，和本地回调完全一样
+                },
+
+                complete: function () {
+                    //请求完成的处理
+                },
+
+                error: function () {
+                    //请求出错处理
+                }
+            });
+		
+		
+		
             // axios.get(
             //         `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${sorpid}&redirect_uri=${codeUrl}&response_type=code&scope=snsapi_base&agentid=${agenttid}&state=loudi#wechat_redirect`
             //     )
