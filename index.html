@@ -1255,7 +1255,7 @@ const sorpid = 'wwe7832a2285c7bb51';
 
         var code = location.href.split('?')[1].split('&')[0].split('=')[1];
         alert(code);
-
+        alert(location.href);
         window.onload = function () {
             alert("获取数据");
             // axios.get(
@@ -1264,11 +1264,13 @@ const sorpid = 'wwe7832a2285c7bb51';
             //     .then((res) => {
             //         let code = res;
             //         console.log(`code=${code}`);
+	    alert(`https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${sorpid}&corpsecret=${Secret}`);
             axios.get(
                     `https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${sorpid}&corpsecret=${Secret}`
                 )
                 .then((response) => {
                     alert(`accsee_token=${response}`);
+		    
                     axios.get(
                             `https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=${response}&code=${code}`
                         )
