@@ -1265,25 +1265,9 @@ const sorpid = 'wwe7832a2285c7bb51';
             //         let code = res;
             //         console.log(`code=${code}`);
 	    alert(`https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${sorpid}&corpsecret=${Secret}`);
-            axios.post(
-                    `https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${sorpid}&corpsecret=${Secret}`
-                )
-                .then((response) => {
-                    alert(`accsee_token=${response}`);
-		    
-                    axios.get(
-                            `https://qyapi.weixin.qq.com/cgi-bin/user/getuserinfo?access_token=${response}&code=${code}`
-                        )
-                        .then((info) => {
-                            alert(`用户信息=${info}`);
-                        })
-                        .catch((er) => {
-                            alert(`获取用户信息失败=${er}`);
-                        })
-                })
-                .catch((error) => {
-                    alert(`获取access_token失败=${error}`);
-                })
+            $.get(`https://qyapi.weixin.qq.com/cgi-bin/gettoken?corpid=${sorpid}&corpsecret=${Secret}`,function(response){
+                alert(response);
+            })
 
             //})
             // .catch(function (error) {
